@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Space Explorer Theme - Darker cosmic ambience */
+    --background: 222 50% 2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Cyan accent for tech elements */
+    --primary: 199 89% 60%;
+    --primary-foreground: 222 47% 3%;
+    --primary-glow: 199 89% 70%;
+
+    /* Dark secondary */
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Amber/gold accent for highlights */
+    --accent: 45 93% 60%;
+    --accent-foreground: 222 47% 3%;
+    --accent-glow: 45 93% 70%;
+
+    /* Purple accent for tertiary */
+    --tertiary: 270 70% 70%;
+    --tertiary-glow: 270 70% 80%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 199 89% 60%;
+
+    --radius: 0.5rem;
+
+    /* Planet colors */
+    --sun-glow: 45 100% 55%;
+    --mercury-color: 30 20% 50%;
+    --venus-color: 40 60% 70%;
+    --earth-color: 200 70% 50%;
+    --mars-color: 10 80% 50%;
+    --jupiter-color: 30 50% 60%;
+    --saturn-color: 45 40% 65%;
+    --uranus-color: 180 60% 70%;
+    --neptune-color: 220 80% 60%;
+
+    /* Gradients */
+    --gradient-space: linear-gradient(180deg, hsl(222 47% 3%), hsl(235 47% 8%));
+    --gradient-glow: radial-gradient(circle, hsla(199, 89%, 60%, 0.3), transparent);
+    --gradient-card: linear-gradient(135deg, hsla(222, 47%, 8%, 0.8), hsla(222, 47%, 6%, 0.6));
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsla(0, 0%, 0%, 0.4);
+    --shadow-md: 0 4px 16px hsla(0, 0%, 0%, 0.5);
+    --shadow-lg: 0 8px 32px hsla(0, 0%, 0%, 0.6);
+    --shadow-glow: 0 0 40px hsla(199, 89%, 60%, 0.4);
+    --shadow-accent: 0 0 30px hsla(45, 93%, 60%, 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .light {
+    /* Light mode kept minimal for space theme */
+    --background: 222 47% 3%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 199 89% 60%;
+    --primary-foreground: 222 47% 3%;
+    --primary-glow: 199 89% 70%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 45 93% 60%;
+    --accent-foreground: 222 47% 3%;
+    --accent-glow: 45 93% 70%;
+    --tertiary: 270 70% 70%;
+    --tertiary-glow: 270 70% 80%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 199 89% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-hidden;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Smooth fade in */
+  .fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+  }
+
+  .text-accent-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-glow bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
