@@ -1,73 +1,153 @@
-# Welcome to your Lovable project
+# ☀️ SunScope — Solar System Explorer & HelioView
 
-## Project info
+An interactive, educational solar platform featuring a real-time **3D Solar System Explorer** and the **HelioView** multi-wavelength solar observation archive.
 
-**URL**: https://lovable.dev/projects/474e364f-f962-46bd-b295-7703a7ec38dc
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+### 🪐 Solar System Explorer (`/`)
+- Fully interactive **3D Solar System** rendered with Three.js & React Three Fiber
+- Click any planet to reveal **AI-powered fact panels** with detailed information
+- Animated orbits, realistic planet scaling, and smooth camera controls
+- Dynamic lighting centered on the Sun
 
-**Use Lovable**
+### 🔭 HelioView Solar Observatory (`/helio`)
+- **Live multi-wavelength solar imaging** — H-alpha, UV, and more
+- **Archive browser** — explore and filter historical solar observations
+- **Image Viewer** — deep-dive into individual captures with metadata
+- **Upload** — submit your own solar observations to the community
+- **Learn** — educational guides on wavelengths, solar phenomena, and safety
+- **User Accounts** — save favourites and manage your profile
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/474e364f-f962-46bd-b295-7703a7ec38dc) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🗂️ Pages & Routes
 
-**Use your preferred IDE**
+| Route | Page | Description |
+|---|---|---|
+| `/` | Solar Explorer | 3D interactive solar system |
+| `/helio` | Home | HelioView dashboard with live feed |
+| `/archive` | Archive | Browse historical solar images |
+| `/viewer/:id` | Viewer | Full-screen image viewer with metadata |
+| `/learn` | Learn | Educational content & safety guides |
+| `/upload` | Upload | Submit solar observations |
+| `/account` | Account | User account management |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Tech Stack
 
-Follow these steps:
+| Technology | Role |
+|---|---|
+| **React 18** | UI framework |
+| **TypeScript** | Type safety |
+| **Vite** | Build tool & dev server |
+| **Three.js + React Three Fiber** | 3D solar system rendering |
+| **Tailwind CSS** | Styling |
+| **shadcn/ui + Radix UI** | Accessible UI components |
+| **Framer Motion** | Animations & transitions |
+| **Supabase** | Backend, auth & database |
+| **TanStack Query** | Server state management |
+| **React Router v6** | Client-side routing |
+| **Recharts** | Data visualization |
+| **React Hook Form + Zod** | Form handling & validation |
+
+---
+
+## 🏁 Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) v18+ and npm
+
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:5173`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Available Scripts
 
-**Use GitHub Codespaces**
+```sh
+npm run dev        # Start development server with HMR
+npm run build      # Build for production
+npm run build:dev  # Build in development mode
+npm run preview    # Preview the production build locally
+npm run lint       # Run ESLint
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## ⚙️ Environment Variables
 
-This project is built with:
+Create a `.env` file in the project root with the following keys:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/474e364f-f962-46bd-b295-7703a7ec38dc) and click on Share -> Publish.
+## 📁 Project Structure
 
-## Can I connect a custom domain to my Lovable project?
+```
+src/
+├── assets/           # Static assets (images, icons)
+├── components/
+│   ├── celestial/    # 3D solar system components (Sun, Planet, CameraController)
+│   ├── ui/           # shadcn/ui base components
+│   ├── Header.tsx
+│   ├── SolarSystem3D.tsx
+│   ├── SpaceExplorer.tsx
+│   ├── PlanetInfoPanel.tsx
+│   ├── TimeControl.tsx
+│   └── ...
+├── hooks/            # Custom React hooks
+├── integrations/     # Supabase client & type definitions
+├── lib/              # Utilities and mock data
+├── pages/
+│   ├── SolarExplorer.tsx   # 3D explorer entry point
+│   ├── Index.tsx           # HelioView home
+│   ├── Archive.tsx
+│   ├── Viewer.tsx
+│   ├── Learn.tsx
+│   ├── Upload.tsx
+│   └── Account.tsx
+└── App.tsx           # Root router
+```
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🌐 Deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Lovable (Recommended)
+Open your [Lovable Project](https://lovable.dev/projects/474e364f-f962-46bd-b295-7703a7ec38dc) and click **Share → Publish**.
+
+### Custom Domain
+Navigate to **Project → Settings → Domains** and click **Connect Domain**.
+See: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+---
+
+## 🔒 Safety & Credits
+
+Solar images are provided for **educational purposes only**. Never observe the Sun directly without certified solar filters. All imagery is captured with specialized equipment.
+
+Data and imagery credits are listed on the `/learn` page within the app.
+
+---
+
+## 📝 License
+
+This project was built with [Lovable](https://lovable.dev). Educational use encouraged.
